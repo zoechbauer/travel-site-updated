@@ -20,7 +20,8 @@ module.exports = {
         contentBase: path.join(__dirname, 'app'),
         hot: true,
         port: 3000,
-        host: '0.0.0.0'
+        host: '10.0.0.11',
+        disableHostCheck: true
     },
     mode: 'development',
     module: {

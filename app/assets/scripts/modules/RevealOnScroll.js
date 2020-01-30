@@ -12,15 +12,15 @@ class RevealOnScroll {
     }
 
     events() {
-        window.addEventListener("scroll", this.scrollThrottle);
-        window.addEventListener("resize", debounce(() => {
-            console.log("resize just ran");
+        window.addEventListener('scroll', this.scrollThrottle);
+        window.addEventListener('resize', debounce(() => {
+            console.log('resize just ran');
             this.windowHeight = window.innerHeight;
         }, 333));
     }
 
     calcCaller() {
-        console.log("Scroll function ran");
+        console.log('Scroll function ran');
         this.itemsToReveal.forEach(el => {
             if (el.isRevealed == false) {
                 this.calculateIfScrolledTo(el);
@@ -29,18 +29,18 @@ class RevealOnScroll {
     }
 
     calculateIfScrolledTo(el) {
-        console.log('window.scrollY / window.innerHeight / el.offsetTop', 
-            window.scrollY, ' / ' , this.windowHeight, ' / ', el.offsetTop);
+        // console.log('window.scrollY / window.innerHeight / el.offsetTop', 
+        //     window.scrollY, ' / ' , this.windowHeight, ' / ', el.offsetTop);
         if (window.scrollY + this.windowHeight > el.offsetTop) {
-            console.log("Element was calculated");
+            console.log('Element was calculated');
             let scrollPercent = (el.getBoundingClientRect().top /this.windowHeight) * 100;
             console.log(scrollPercent);
             if (scrollPercent < this.threshholdPercent) {
-                el.classList.add("reveal-item--is-visible");
+                el.classList.add('reveal-item--is-visible');
                 el.isRevealed = true;
 
                 if (el.isLastElement) {
-                    window.removeEventListener("scroll", this.scrollThrottle);
+                    window.removeEventListener('scroll', this.scrollThrottle);
                 }
             }
         }
@@ -48,7 +48,7 @@ class RevealOnScroll {
 
     revealInitially() {
         this.itemsToReveal.forEach(el => {
-            el.classList.add("reveal-item")
+            el.classList.add('reveal-item')
             el.isRevealed = false;
         });
         this.itemsToReveal[this.itemsToReveal.length - 1].isLastElement = true;

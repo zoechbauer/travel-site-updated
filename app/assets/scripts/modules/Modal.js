@@ -1,4 +1,4 @@
-class Module {
+class Modal {
     constructor() {
         this.injectHtml();
         this.openModalButtons = document.querySelectorAll('.open-modal');
@@ -54,4 +54,4 @@ class Module {
     }
 }
 
-export default Module;
+export default Modal;

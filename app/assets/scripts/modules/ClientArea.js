@@ -19,7 +19,7 @@ class ClientArea {
     sendRequest() {
         const url = 'https://zoe-travel-site.netlify.com/.netlify/functions/secret-area';
         const data = {password: this.form.value};
-        Axios.post(url, ).then(response => {
+        Axios.post(url, data).then(response => {
             this.form.remove(),
             this.contentArea.innerHTML = response.data;
             console.log(repsonse);
